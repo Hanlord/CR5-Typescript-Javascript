@@ -1,15 +1,16 @@
 "use strict";
 class Animal {
-    constructor(name, age, pic, gender, size) {
+    constructor(name, age, pic, gender, size, vaccine) {
         this.name = name;
         this.age = age;
         this.img = pic;
         this.gender = gender;
         this.size = size;
+        this.vaccine = vaccine;
         console.log(this);
         array.push(this);
     }
-    printInfo() {
+    display() {
         return `<div class="col-lg-4 col-sm-6 col-xs-12">
     <div class="card" style="width: 18rem;">
         <img src="${this.img}" class="card-img-top" alt="Card image cap">
@@ -17,7 +18,7 @@ class Animal {
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender:${this.gender}<br>Age:${this.age}<br>Size:${this.size}</p>
           <div class="text-center">
-          <button type="button" class="btn-vac btn btn-success btn-block w-100">Vaccine <i class="fa-solid fa-award"></i></button>
+          <button type="button" class="btn-vac btn btn-success btn-block w-100">Vaccine ${this.vaccine} &ensp;<i class="fa-solid fa-award"></i></button>
         </div>
         </div>
       </div>
@@ -25,14 +26,14 @@ class Animal {
     }
 }
 class Dog extends Animal {
-    constructor(name, age, pic, gender, size, breed, training) {
-        super(name, age, pic, gender, size);
+    constructor(name, age, pic, gender, size, vaccine, breed, training) {
+        super(name, age, pic, gender, size, vaccine);
         this.breed = breed;
         this.training = training;
         this.breed = breed;
         this.training = training;
     }
-    printInfo() {
+    display() {
         return `<div class="col-lg-4 col-sm-6 col-xs-12">
     <div class="card" style="width: 18rem;">
         <img src="${this.img}" class="card-img-top" alt="Card image cap">
@@ -40,7 +41,7 @@ class Dog extends Animal {
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender: ${this.gender}<br>Age: ${this.age}<br>Size: ${this.size}</p>
           <div class="text-center">
-          <button type="button" class="btn-vac btn btn-success btn-block w-100">Vaccine <i class="fa-solid fa-award"></i></button>  
+          <button type="button" class="btn-vac btn btn-success btn-block w-100">Vaccine ${this.vaccine}&ensp;<i class="fa-solid fa-award"></i></button>  
         </div>
         <br>
         <p>Breed:${this.breed} </p>
@@ -51,8 +52,8 @@ class Dog extends Animal {
     }
 }
 class Cat extends Animal {
-    constructor(name, age, pic, gender, size, breed, furColor, URLbreed) {
-        super(name, age, pic, gender, size);
+    constructor(name, age, pic, gender, size, vaccine, breed, furColor, URLbreed) {
+        super(name, age, pic, gender, size, vaccine);
         this.breed = breed;
         this.furColor = furColor;
         this.URLbreed = URLbreed;
@@ -60,7 +61,7 @@ class Cat extends Animal {
         this.furColor = furColor;
         this.URLbreed = URLbreed;
     }
-    printInfo() {
+    display() {
         return `<div class="col-lg-4 col-sm-6 col-xs-12">
     <div class="card" style="width: 18rem;">
         <img src="${this.img}" class="card-img-top" alt="Card image cap">
@@ -68,7 +69,7 @@ class Cat extends Animal {
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender: ${this.gender}<br>Age: ${this.age}<br>Size: ${this.size}</p>
           <div class="text-center">
-          <button type="button" class="btn-vac btn btn-success btn-block w-100">Vaccine <i class="fa-solid fa-award"></i></button>  
+          <button type="button" class="btn-vac btn btn-success btn-block w-100">Vaccine ${this.vaccine}&ensp; <i class="fa-solid fa-award"></i></button>  
         </div>
         <br>
         <p>Breed:${this.breed} </p>
@@ -80,25 +81,42 @@ class Cat extends Animal {
     }
 }
 let array = [];
-new Animal("Bacon", 5, "../img/piggy.jpg", " female", " small");
-new Animal("Spike", 4, "../img/hedgehog.jpg", " male", " small");
-new Dog("Sushi", 2, "../img/shepherd.jpg", " female", " large", " Australian Shepherd", true);
-new Dog("Platano", 5, "../img/poodle.jpg", " male", " small", " Poodle", false);
-new Dog("Toto", 5, "../img/pug.jpg", " male", " medium", " Pug", true);
-new Dog("Jimmy Chew", 5, "../img/bigears.jpg", " male", " small", " Bigearsprettything", true);
-new Cat("Feline Dion", 5, "../img/angora.jpg", " female", " medium", " Angora", " Grey", "www.angoras.com");
-new Cat("Meowley Cyrus", 1, "../img/Siamese.jpg", " female", " medium", " Siamese", " Ginger", "www.siamese.com");
+new Animal("Bacon", 3, "../img/piggy.jpg", " female", " small", true);
+new Animal("Spike", 4, "../img/hedgehog.jpg", " male", " small", true);
+new Dog("Sushi", 3, "../img/shepherd.jpg", " female", " large", false, " Australian Shepherd", true);
+new Dog("Platano", 5, "../img/poodle.jpg", " male", " small", true, " Poodle", false);
+new Dog("Toto", 5, "../img/pug.jpg", " male", " medium", true, " Pug", true);
+new Dog("Jimmy Chew", 5, "../img/bigears.jpg", " male", " small", false, " Bigearsprettything", true);
+new Cat("Feline Dion", 5, "../img/angora.jpg", " female", " medium", true, " Angora", " Grey", "www.angoras.com");
+new Cat("Meowley Cyrus", 1, "../img/Siamese.jpg", " female", " medium", false, " Siamese", " Ginger", "www.siamese.com");
 console.log(array);
 for (let val of array) {
-    document.getElementById("result").innerHTML += val.printInfo();
+    document.getElementById("result").innerHTML += val.display();
 }
-let btnsort = document.getElementById("sorti").addEventListener("click", sortAge);
-function sortAge() {
-    let sortedArray = age.sort((a, b) => a.age - b.age);
-    updateHTML(sortedArray);
+function changeC(vaccine) {
+    if (vaccine == false) {
+        return document.getElementById("btn-vac").innerHTML +=
+        ;
+    }
 }
-sortAge();
-function checkColor(i) {
-    document.getElementsByClassName("btn-vac")[i].addEventListener("click", checkColor).style.backgroundColor = "red";
-    document.getElementsByClassName("btn-vac")[i].addEventListener("click", checkColor).style.backgroundColor = "green";
-}
+// checkColor(i){
+//     let btns = (document.getElementsByClassName("btn-vac")[i]as HTMLElement).addEventListener("click",checkColor)
+//     for (let i = 0; i < btns.length; i++) 
+//     (document.getElementsByClassName("btn-vac")[i]as HTMLElement).addEventListener("click",checkColor).style.backgroundColor = "red";
+//     (document.getElementsByClassName("btn-vac")[i]as HTMLElement).addEventListener("click",checkColor).style.backgroundColor = "green";
+//     }
+// let btns = document.getElementsByClassName("btn-vac");
+// for (let i = 0; i < btns.length; i++) {
+//   btns[i].addEventListener("click", function () {
+//     (document.getElementsByClassName("result")[i] as HTMLElement).innerHTML = array[i].checkColor();
+//   });
+// }
+// let btnsort =document.getElementById("sorti").addEventListener("click",sortTasks);
+//     function sortTasks(){
+//     let sortedArray = tasks.sort((a, b) => a.imp - b.imp);
+//       updateHTML(sortedArray);
+//     }
+//     sortTasks();
+// (document.getElementById("sorti") as HTMLElement).addEventListener("click",function(){
+//     (document.getElementById("sorti")as HTMLElement).innerHTML+=test.calculation();
+// }) ;
