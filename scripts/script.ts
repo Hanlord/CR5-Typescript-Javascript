@@ -23,7 +23,7 @@ class Animal {
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender:${this.gender}<br>Age:${this.age}<br>Size:${this.size}</p>
           <div class="text-center">
-          <button type="button" class="btn btn-success btn-block w-100"> <i class="fa-solid fa-award"></i></button>
+          <button type="button" class="btn-vac btn btn-success btn-block w-100">Vaccine <i class="fa-solid fa-award"></i></button>
         </div>
         </div>
       </div>
@@ -52,7 +52,7 @@ class Dog extends Animal {
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender: ${this.gender}<br>Age: ${this.age}<br>Size: ${this.size}</p>
           <div class="text-center">
-          <button type="button" class="btn btn-success btn-block w-100"> <i class="fa-solid fa-award"></i></button>  
+          <button type="button" class="btn-vac btn btn-success btn-block w-100">Vaccine <i class="fa-solid fa-award"></i></button>  
         </div>
         <br>
         <p>Breed:${this.breed} </p>
@@ -80,7 +80,7 @@ class Cat extends Animal {
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender: ${this.gender}<br>Age: ${this.age}<br>Size: ${this.size}</p>
           <div class="text-center">
-          <button type="button" class="btn btn-success btn-block w-100"> <i class="fa-solid fa-award"></i></button>  
+          <button type="button" class="btn-vac btn btn-success btn-block w-100">Vaccine <i class="fa-solid fa-award"></i></button>  
         </div>
         <br>
         <p>Breed:${this.breed} </p>
@@ -110,3 +110,20 @@ console.log(array);
 for (let val of array) {
   (document.getElementById("result") as HTMLElement).innerHTML += val.printInfo();
 }
+
+
+let btnsort =
+(document.getElementById("sorti") as HTMLElement).addEventListener("click",sortAge);
+    function sortAge(){
+    let sortedArray = age.sort((a, b) => a.age - b.age);
+      updateHTML(sortedArray);
+    }
+    sortAge();
+
+function checkColor(i){
+    
+    (document.getElementsByClassName("btn-vac")[i]as HTMLElement).addEventListener("click",checkColor).style.backgroundColor = "red";
+    
+    (document.getElementsByClassName("btn-vac")[i]as HTMLElement).addEventListener("click",checkColor).style.backgroundColor = "green";
+    }
+   
