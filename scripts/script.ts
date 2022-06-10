@@ -120,7 +120,7 @@ let ascendingbtn =
     sortAge();
 
 
-    let ColorR = 
+let ColorR = 
     (document.getElementById("result") as HTMLElement).addEventListener("click", changeColor);
     function changeColor(){
         let red = Math.floor(Math.random() * 255);
@@ -130,12 +130,22 @@ let ascendingbtn =
     }
 changeColor();
 
-let vaccine: boolean = true;
-function checkColor(){
-    if (vaccine = true){
-    (document.getElementsByClassName("btn-vac")[0]as HTMLElement).style.backgroundColor = "green";
-    } else if(vaccine = false){
-    (document.getElementsByClassName("btn-vac")[0]as HTMLElement).style.backgroundColor = "red";
+// let vaccine: boolean = true;
+// function checkColor(){
+//     if (vaccine = true){
+//     (document.getElementsByClassName("btn-vac")[0]as HTMLElement).style.backgroundColor = "green";
+//     } else if(vaccine = false){
+//     (document.getElementsByClassName("btn-vac")[0]as HTMLElement).style.backgroundColor = "red";
+//     }
+//   }
+// checkColor();
+
+function colorC() {
+    let btns = document.getElementsByClassName("btn-vac");
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            array[i].vaccine = !array[i].vaccine;
+            colorC();
+        });
     }
-  }
-checkColor();
+}
