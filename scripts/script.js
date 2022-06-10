@@ -25,7 +25,6 @@ class Animal {
     }
 }
 class Dog extends Animal {
-    //   public salary?: number;
     constructor(name, age, pic, gender, size, breed, training) {
         super(name, age, pic, gender, size);
         this.breed = breed;
@@ -33,9 +32,6 @@ class Dog extends Animal {
         this.breed = breed;
         this.training = training;
     }
-    // howMuchHeEarn() {
-    //   return this.age * this.salary;
-    // }
     printInfo() {
         return `<div class="col-lg-4 col-sm-6 col-xs-12">
     <div class="card" style="width: 18rem;">

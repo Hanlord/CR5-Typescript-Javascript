@@ -32,17 +32,12 @@ class Animal {
 }
 
 class Dog extends Animal {
-  //   public salary?: number;
 
   constructor(name: string, age: number, pic: string, gender:string, size:string, public breed: string, public training: boolean) {
     super(name, age, pic, gender, size);
     this.breed = breed;
     this.training = training;
   }
-
-  // howMuchHeEarn() {
-  //   return this.age * this.salary;
-  // }
 
   printInfo() {
     return `<div class="col-lg-4 col-sm-6 col-xs-12">
