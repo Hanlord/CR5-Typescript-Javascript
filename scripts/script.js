@@ -13,7 +13,7 @@ class Animal {
     display() {
         return `<div class="col-lg-4 col-sm-6 col-xs-12">
     <div class="card" style="width: 18rem;">
-        <img src="${this.img}" class="card-img-top" alt="Card image cap">
+        <img src="${this.img}" class="card-img-top d-sm-block d-none" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender:${this.gender}<br>Age:${this.age}<br>Size:${this.size}</p>
@@ -36,7 +36,7 @@ class Dog extends Animal {
     display() {
         return `<div class="col-lg-4 col-sm-6 col-xs-12">
     <div class="card" style="width: 18rem;">
-        <img src="${this.img}" class="card-img-top" alt="Card image cap">
+        <img src="${this.img}" class="card-img-top d-sm-block d-none" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender: ${this.gender}<br>Age: ${this.age}<br>Size: ${this.size}</p>
@@ -64,7 +64,7 @@ class Cat extends Animal {
     display() {
         return `<div class="col-lg-4 col-sm-6 col-xs-12">
     <div class="card" style="width: 18rem;">
-        <img src="${this.img}" class="card-img-top" alt="Card image cap">
+        <img src="${this.img}" class="card-img-top d-sm-block d-none" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender: ${this.gender}<br>Age: ${this.age}<br>Size: ${this.size}</p>
@@ -93,12 +93,11 @@ console.log(array);
 for (let val of array) {
     document.getElementById("result").innerHTML += val.display();
 }
-function changeC(vaccine) {
-    if (vaccine == false) {
-        return document.getElementById("btn-vac").innerHTML +=
-        ;
-    }
-}
+// function changeC(vaccine:boolean):boolean{
+//     if (vaccine==false){
+//         return (document.getElementById("btn-vac") as HTMLElement).innerHTML+= 
+//     }
+// }
 // checkColor(i){
 //     let btns = (document.getElementsByClassName("btn-vac")[i]as HTMLElement).addEventListener("click",checkColor)
 //     for (let i = 0; i < btns.length; i++) 
