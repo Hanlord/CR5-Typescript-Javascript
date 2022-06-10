@@ -64,7 +64,7 @@ class Dog extends Animal {
 
 class Cat extends Animal {
 
-  constructor(name: string, age: number, pic: string, gender:string, size:string,vaccine: boolean, public breed: string, public furColor: string, public URLbreed: URL) {
+  constructor(name: string, age: number, pic: string, gender:string, size:string,vaccine: boolean, public breed: string, public furColor: string, public URLbreed: string) {
     super(name, age, pic, gender, size,vaccine);
     this.breed = breed;
     this.furColor = furColor;
