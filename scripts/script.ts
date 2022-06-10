@@ -94,10 +94,10 @@ class Cat extends Animal {
 
 let array: Array<Animal> = [];
 
-new Animal("Bacon", 3, "../img/piggy.jpg", " female", " small",true);
+new Animal("Bacon", 5, "../img/piggy.jpg", " female", " small",true);
 new Animal("Spike", 4, "../img/hedgehog.jpg", " male", " small",true);
 
-new Dog("Sushi", 3, "../img/shepherd.jpg", " female", " large",false," Australian Shepherd", true);
+new Dog("Sushi", 2, "../img/shepherd.jpg", " female", " large",false," Australian Shepherd", true);
 new Dog("Platano", 5, "../img/poodle.jpg", " male"," small",true, " Poodle", false);
 new Dog("Toto", 5, "../img/pug.jpg", " male"," medium",true, " Pug", true);
 new Dog("Jimmy Chew", 5, "../img/bigears.jpg", " male"," small",false, " Bigearsprettything", true);
@@ -111,13 +111,31 @@ for (let val of array) {
   (document.getElementById("result") as HTMLElement).innerHTML += val.display();
 }
 
+let ascendingbtn =
+    (document.getElementById("sorti")as HTMLElement).addEventListener("click",sortAge);
+    function sortAge(){
+    let sortedArray = array.sort((a, b) => a.age - b.age);
+      return sortedArray;
+    }
+    sortAge();
+
+
+    let ColorR = 
+    (document.getElementById("result") as HTMLElement).addEventListener("click", changeColor);
+    function changeColor(){
+        let red = Math.floor(Math.random() * 255);
+        let green = Math.floor(Math.random() * 255);
+        let yellow = Math.floor(Math.random() * 255);
+        document.body.style.backgroundColor = `rgb(${red},${green},${yellow})`;
+    }
+changeColor();
+
+
 // function changeC(vaccine:boolean):boolean{
 //     if (vaccine==false){
 //         return (document.getElementById("btn-vac") as HTMLElement).innerHTML+= 
 //     }
 // }
-
-    
 
 // checkColor(i){
 //     let btns = (document.getElementsByClassName("btn-vac")[i]as HTMLElement).addEventListener("click",checkColor)
@@ -133,13 +151,6 @@ for (let val of array) {
 //     (document.getElementsByClassName("result")[i] as HTMLElement).innerHTML = array[i].checkColor();
 //   });
 // }
-
-// let btnsort =document.getElementById("sorti").addEventListener("click",sortTasks);
-//     function sortTasks(){
-//     let sortedArray = tasks.sort((a, b) => a.imp - b.imp);
-//       updateHTML(sortedArray);
-//     }
-//     sortTasks();
 
 // (document.getElementById("sorti") as HTMLElement).addEventListener("click",function(){
 //     (document.getElementById("sorti")as HTMLElement).innerHTML+=test.calculation();
