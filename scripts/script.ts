@@ -130,28 +130,12 @@ let ascendingbtn =
     }
 changeColor();
 
-
-// function changeC(vaccine:boolean):boolean{
-//     if (vaccine==false){
-//         return (document.getElementById("btn-vac") as HTMLElement).innerHTML+= 
-//     }
-// }
-
-// checkColor(i){
-//     let btns = (document.getElementsByClassName("btn-vac")[i]as HTMLElement).addEventListener("click",checkColor)
-//     for (let i = 0; i < btns.length; i++) 
-//     (document.getElementsByClassName("btn-vac")[i]as HTMLElement).addEventListener("click",checkColor).style.backgroundColor = "red";
-    
-//     (document.getElementsByClassName("btn-vac")[i]as HTMLElement).addEventListener("click",checkColor).style.backgroundColor = "green";
-//     }
-
-// let btns = document.getElementsByClassName("btn-vac");
-// for (let i = 0; i < btns.length; i++) {
-//   btns[i].addEventListener("click", function () {
-//     (document.getElementsByClassName("result")[i] as HTMLElement).innerHTML = array[i].checkColor();
-//   });
-// }
-
-// (document.getElementById("sorti") as HTMLElement).addEventListener("click",function(){
-//     (document.getElementById("sorti")as HTMLElement).innerHTML+=test.calculation();
-// }) ;
+let vaccine: boolean = true;
+function checkColor(){
+    if (vaccine = true){
+    (document.getElementsByClassName("btn-vac")[0]as HTMLElement).style.backgroundColor = "green";
+    } else if(vaccine = false){
+    (document.getElementsByClassName("btn-vac")[0]as HTMLElement).style.backgroundColor = "red";
+    }
+  }
+checkColor();
