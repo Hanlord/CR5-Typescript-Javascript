@@ -81,13 +81,13 @@ class Cat extends Animal {
     }
 }
 let array = [];
-new Animal("Bacon", 5, "../img/piggy.jpg", " female", " small", true);
+new Animal("Bacon", 3, "../img/piggy.jpg", " female", " small", true);
 new Animal("Spike", 4, "../img/hedgehog.jpg", " male", " small", true);
 new Dog("Sushi", 2, "../img/shepherd.jpg", " female", " large", false, " Australian Shepherd", true);
-new Dog("Platano", 5, "../img/poodle.jpg", " male", " small", true, " Poodle", false);
-new Dog("Toto", 5, "../img/pug.jpg", " male", " medium", true, " Pug", true);
+new Dog("Platano", 2, "../img/poodle.jpg", " male", " small", true, " Poodle", false);
+new Dog("Toto", 3, "../img/pug.jpg", " male", " medium", true, " Pug", true);
 new Dog("Jimmy Chew", 5, "../img/bigears.jpg", " male", " small", false, " Bigearsprettything", true);
-new Cat("Feline Dion", 5, "../img/angora.jpg", " female", " medium", true, " Angora", " Grey", "www.angoras.com");
+new Cat("Feline Dion", 4, "../img/angora.jpg", " female", " medium", true, " Angora", " Grey", "www.angoras.com");
 new Cat("Meowley Cyrus", 1, "../img/Siamese.jpg", " female", " medium", false, " Siamese", " Ginger", "www.siamese.com");
 console.log(array);
 for (let val of array) {
@@ -104,14 +104,15 @@ for (let val of array) {
 //   (document.getElementById("sorti")as HTMLElement).addEventListener("click",compareAge);
 //   return (a.age - b.age)
 // }
-let ColorR = document.getElementById("result").addEventListener("click", changeColor);
-function changeColor() {
-    let red = Math.floor(Math.random() * 255);
-    let green = Math.floor(Math.random() * 255);
-    let yellow = Math.floor(Math.random() * 255);
-    document.body.style.backgroundColor = `rgb(${red},${green},${yellow})`;
-}
-changeColor();
+// let ColorR = 
+//     (document.getElementById("result") as HTMLElement).addEventListener("click", changeColor);
+//     function changeColor(){
+//         let red = Math.floor(Math.random() * 255);
+//         let green = Math.floor(Math.random() * 255);
+//         let yellow = Math.floor(Math.random() * 255);
+//         document.body.style.backgroundColor = `rgb(${red},${green},${yellow})`;
+//     }
+// changeColor();
 // let vaccine: boolean = true;
 // function checkColor(){
 //     if (vaccine = true){
@@ -131,9 +132,8 @@ function colorC() {
     }
 }
 let btnsort = document.getElementById("sorti");
-btnsort.addEventListener("click", sortTasks);
-function sortTasks() {
-    let sortedArray = array.sort((a, b) => a.age - b.age);
-    return (sortedArray);
+btnsort.addEventListener("click", sortAge);
+function sortAge() {
+    return array.sort((a, b) => a.age - b.age);
 }
-sortTasks();
+sortAge();
