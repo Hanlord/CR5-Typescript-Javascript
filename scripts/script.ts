@@ -111,13 +111,18 @@ for (let val of array) {
   (document.getElementById("result") as HTMLElement).innerHTML += val.display();
 }
 
-let ascendingbtn =
-    (document.getElementById("sorti")as HTMLElement).addEventListener("click",sortAge);
-    function sortAge(){
-    let sortedArray = array.sort((a, b) => a.age - b.age);
-      return sortedArray;
-    }
-    sortAge();
+// let ascendingbtn =
+//     (document.getElementById("sorti")as HTMLElement).addEventListener("click",sortAge);
+//     function sortAge(){
+//     let sortedArray = array.sort((a, b) => a.age - b.age);
+//       return sortedArray;
+//     }
+//     sortAge();
+
+// function compareAge(a: {age:number}, b : {age:number}):number {
+//   (document.getElementById("sorti")as HTMLElement).addEventListener("click",compareAge);
+//   return (a.age - b.age)
+// }
 
 
 let ColorR = 
@@ -149,3 +154,12 @@ function colorC() {
         });
     }
 }
+
+
+let btnsort =document.getElementById("sorti") as HTMLElement;
+btnsort.addEventListener("click",sortTasks);
+    function sortTasks(){
+    let sortedArray = array.sort((a, b) => a.age - b.age);
+      return(sortedArray);
+    }
+    sortTasks();
