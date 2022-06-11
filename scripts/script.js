@@ -93,6 +93,39 @@ console.log(array);
 for (let val of array) {
     document.getElementById("result").innerHTML += val.display();
 }
+function colorC() {
+    let btns = document.getElementsByClassName("btn-vac");
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            array[i].vaccine = !array[i].vaccine;
+            colorC();
+        });
+    }
+}
+let btnsort = document.getElementById("sorti");
+btnsort.addEventListener("click", sortAge);
+function sortAge() {
+    return array.sort((a, b) => a.age - b.age);
+}
+sortAge();
+// let btnsort =document.getElementById("sorti").addEventListener("click",sortarray);
+//   function sortTasks(){
+//   let sortedArray = array.sort((a, b) => a.age - b.age);
+//     updateHTML(sortedArray);
+//   }
+//   sortarray();
+// let button = document.getElementById("sorting");
+// const sortedArray: Animal[] = this.age.sort((a.age,b.age)) => {
+//   if (a.age > b.age){
+//     return 1;
+//   }else if (a.age < b.age){
+//     return -1;
+//   }
+//   return 0;
+// };
+// button?.addEventListener("click", function handleClick(event){
+//   return array.sort((a, b) => a.age - b.age);
+// })
 // let ascendingbtn =
 //     (document.getElementById("sorti")as HTMLElement).addEventListener("click",sortAge);
 //     function sortAge(){
@@ -122,18 +155,3 @@ for (let val of array) {
 //     }
 //   }
 // checkColor();
-function colorC() {
-    let btns = document.getElementsByClassName("btn-vac");
-    for (let i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function () {
-            array[i].vaccine = !array[i].vaccine;
-            colorC();
-        });
-    }
-}
-let btnsort = document.getElementById("sorti");
-btnsort.addEventListener("click", sortAge);
-function sortAge() {
-    return array.sort((a, b) => a.age - b.age);
-}
-sortAge();

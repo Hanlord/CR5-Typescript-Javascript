@@ -132,6 +132,16 @@ btnsort.addEventListener("click",sortAge);
     }
     sortAge();
 
+
+ 
+  // let btnsort =document.getElementById("sorti").addEventListener("click",sortarray);
+  //   function sortTasks(){
+  //   let sortedArray = array.sort((a, b) => a.age - b.age);
+  //     updateHTML(sortedArray);
+  //   }
+  //   sortarray();
+
+
 // let button = document.getElementById("sorting");
 
 // const sortedArray: Animal[] = this.age.sort((a.age,b.age)) => {
