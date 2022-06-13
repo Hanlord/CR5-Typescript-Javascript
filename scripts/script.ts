@@ -123,10 +123,10 @@ for (let val of array) {
   };
 
   function printC() {
-      const animalscontainer = (document.getElementById("result") as HTMLElement);
-      animalscontainer.innerHTML = "";
+      const container = (document.getElementById("result") as HTMLElement);
+      container.innerHTML = "";
       array.forEach((val) => {
-          animalscontainer.innerHTML += val.display();
+          container.innerHTML += val.display();
       });
       vacbutton ();
   }

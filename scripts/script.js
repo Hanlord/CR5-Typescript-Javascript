@@ -103,10 +103,10 @@ function agesort() {
 }
 ;
 function printC() {
-    const animalscontainer = document.getElementById("result");
-    animalscontainer.innerHTML = "";
+    const container = document.getElementById("result");
+    container.innerHTML = "";
     array.forEach((val) => {
-        animalscontainer.innerHTML += val.display();
+        container.innerHTML += val.display();
     });
     vacbutton();
 }
