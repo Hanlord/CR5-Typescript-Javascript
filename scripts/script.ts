@@ -25,7 +25,7 @@ class Animal {
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender:${this.gender}<br>Age:${this.age}<br>Size:${this.size}</p>
           <div class="text-center">
-          <button class="text-center btn d-flex btn-vaccine justify-content-center bg-${this.vaccine?"success":"danger"}">Vaccine &nbsp<i class="bi ${this.vaccine ? "bi-bookmark-check-fill" : "bi-bookmark-dash"}"></i></button>
+          <button class="text-center btn d-flex btn-vac justify-content-center bg-${this.vaccine?"success":"danger"}">Vaccine &nbsp<i class="bi ${this.vaccine ? "bi-bookmark-check-fill" : "bi-bookmark-dash"}"></i></button>
         </div>
         </div>
       </div>
@@ -50,7 +50,7 @@ class Dog extends Animal {
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender: ${this.gender}<br>Age: ${this.age}<br>Size: ${this.size}</p>
           <div class="text-center">
-          <button class="text-center btn d-flex btn-vaccine justify-content-center bg-${this.vaccine?"success":"danger"}">Vaccine &nbsp<i class="bi ${this.vaccine ? "bi-bookmark-check-fill" : "bi-bookmark-dash"}"></i></button>  
+          <button class="text-center btn d-flex btn-vac justify-content-center bg-${this.vaccine?"success":"danger"}">Vaccine &nbsp<i class="bi ${this.vaccine ? "bi-bookmark-check-fill" : "bi-bookmark-dash"}"></i></button>  
         </div>
         <br>
         <p>Breed:${this.breed} </p>
@@ -79,7 +79,7 @@ class Cat extends Animal {
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender: ${this.gender}<br>Age: ${this.age}<br>Size: ${this.size}</p>
           <div class="text-center">
-          <button class="text-center btn d-flex btn-vaccine justify-content-center bg-${this.vaccine?"success":"danger"}">Vaccine &nbsp<i class="bi ${this.vaccine ? "bi-bookmark-check-fill" : "bi-bookmark-dash"}"></i></button>  
+          <button class="text-center btn d-flex btn-vac justify-content-center bg-${this.vaccine?"success":"danger"}">Vaccine &nbsp<i class="bi ${this.vaccine ? "bi-bookmark-check-fill" : "bi-bookmark-dash"}"></i></button>  
         </div>
         <br>
         <p>Breed:${this.breed} </p>
@@ -130,7 +130,7 @@ for (let val of array) {
       vacbutton ();
   }
   printC();
-  
+
   function vacbutton(){
       let btns = (document.getElementsByClassName("btn-vac") as HTMLCollection);
       for (let i = 0; i < btns.length; i++) {
