@@ -18,14 +18,14 @@ class Animal {
   }
 
   display() {
-    return `<div class="col-lg-4 col-sm-6 col-xs-12">
+    return `<div class="col-lg-4 col-sm-6 col-xs-12 justify-content-center">
     <div class="card" style="width: 18rem;">
         <img src="${this.img}" class="card-img-top d-sm-block d-none" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender:${this.gender}<br>Age:${this.age}<br>Size:${this.size}</p>
           <div class="text-center">
-          <button type="button" class="btn-vac btn btn-success btn-block w-100">Vaccine ${this.vaccine} &ensp;<i class="fa-solid fa-award"></i></button>
+          <button class="text-center btn d-flex btn-vaccine justify-content-center bg-${this.vaccine?"success":"danger"}">Vaccine &nbsp<i class="bi ${this.vaccine ? "bi-bookmark-check-fill" : "bi-bookmark-dash"}"></i></button>
         </div>
         </div>
       </div>
@@ -43,14 +43,14 @@ class Dog extends Animal {
   }
 
   display() {
-    return `<div class="col-lg-4 col-sm-6 col-xs-12">
+    return `<div class="col-lg-4 col-sm-6 col-xs-12 justify-content-center">
     <div class="card" style="width: 18rem;">
         <img src="${this.img}" class="card-img-top d-sm-block d-none" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender: ${this.gender}<br>Age: ${this.age}<br>Size: ${this.size}</p>
           <div class="text-center">
-          <button type="button" class="btn-vac btn btn-success btn-block w-100">Vaccine ${this.vaccine}&ensp;<i class="fa-solid fa-award"></i></button>  
+          <button class="text-center btn d-flex btn-vaccine justify-content-center bg-${this.vaccine?"success":"danger"}">Vaccine &nbsp<i class="bi ${this.vaccine ? "bi-bookmark-check-fill" : "bi-bookmark-dash"}"></i></button>  
         </div>
         <br>
         <p>Breed:${this.breed} </p>
@@ -72,14 +72,14 @@ class Cat extends Animal {
   }
 
   display() {
-    return `<div class="col-lg-4 col-sm-6 col-xs-12">
+    return `<div class="col-lg-4 col-sm-6 col-xs-12 justify-content-center">
     <div class="card" style="width: 18rem;">
         <img src="${this.img}" class="card-img-top d-sm-block d-none" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title text-center bg-dark text-white">${this.name}</h5>
           <p class="card-text">Gender: ${this.gender}<br>Age: ${this.age}<br>Size: ${this.size}</p>
           <div class="text-center">
-          <button type="button" class="btn-vac btn btn-success btn-block w-100">Vaccine ${this.vaccine}&ensp; <i class="fa-solid fa-award"></i></button>  
+          <button class="text-center btn d-flex btn-vaccine justify-content-center bg-${this.vaccine?"success":"danger"}">Vaccine &nbsp<i class="bi ${this.vaccine ? "bi-bookmark-check-fill" : "bi-bookmark-dash"}"></i></button>  
         </div>
         <br>
         <p>Breed:${this.breed} </p>
@@ -106,6 +106,7 @@ new Dog("Jimmy Chew", 5, "../img/bigears.jpg", " male"," small",false, " Bigears
 
 new Cat("Feline Dion", 4, "../img/angora.jpg"," female", " medium",true, " Angora", " Grey", "www.angoras.com");
 new Cat("Meowley Cyrus", 1, "../img/Siamese.jpg"," female", " medium",false, " Siamese", " Ginger", "www.siamese.com");
+(document.getElementById("sorti") as HTMLElement).addEventListener("click", agesort);
 
 console.log(array);
 
@@ -114,80 +115,28 @@ for (let val of array) {
 }
 
 
+  function agesort () {
+    array.sort(function(a, b) {
+          return a.age - b.age});
+      printC();
+  };
 
-function colorC() {
-    let btns = document.getElementsByClassName("btn-vac");
-    for (let i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function () {
-            array[i].vaccine = !array[i].vaccine;
-            colorC();
-        });
-    }
+  function printC() {
+      const animalscontainer = (document.getElementById("result") as HTMLElement);
+      animalscontainer.innerHTML = "";
+      array.forEach((val) => {
+          animalscontainer.innerHTML += val.display();
+      });
+      vacbutton ();
+  }
+  printC();
+  
+  function vacbutton(){
+      let btns = (document.getElementsByClassName("btn-vac") as HTMLCollection);
+      for (let i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function () {
+          array[i].vaccine=!array[i].vaccine;
+          printC();
+    });
+  }
 }
-
-let btnsort =document.getElementById("sorti") as HTMLElement;
-btnsort.addEventListener("click",sortAge);
-    function sortAge(){
-      return array.sort((a, b) => a.age - b.age);
-    }
-    sortAge();
-
-
- 
-  // let btnsort =document.getElementById("sorti").addEventListener("click",sortarray);
-  //   function sortTasks(){
-  //   let sortedArray = array.sort((a, b) => a.age - b.age);
-  //     updateHTML(sortedArray);
-  //   }
-  //   sortarray();
-
-
-// let button = document.getElementById("sorting");
-
-// const sortedArray: Animal[] = this.age.sort((a.age,b.age)) => {
-//   if (a.age > b.age){
-//     return 1;
-//   }else if (a.age < b.age){
-//     return -1;
-//   }
-//   return 0;
-// };
-
-// button?.addEventListener("click", function handleClick(event){
-//   return array.sort((a, b) => a.age - b.age);
-// })
-
-// let ascendingbtn =
-//     (document.getElementById("sorti")as HTMLElement).addEventListener("click",sortAge);
-//     function sortAge(){
-//     let sortedArray = array.sort((a, b) => a.age - b.age);
-//       return sortedArray;
-//     }
-//     sortAge();
-
-// function compareAge(a: {age:number}, b : {age:number}):number {
-//   (document.getElementById("sorti")as HTMLElement).addEventListener("click",compareAge);
-//   return (a.age - b.age)
-// }
-
-
-// let ColorR = 
-//     (document.getElementById("result") as HTMLElement).addEventListener("click", changeColor);
-//     function changeColor(){
-//         let red = Math.floor(Math.random() * 255);
-//         let green = Math.floor(Math.random() * 255);
-//         let yellow = Math.floor(Math.random() * 255);
-//         document.body.style.backgroundColor = `rgb(${red},${green},${yellow})`;
-//     }
-// changeColor();
-
-// let vaccine: boolean = true;
-// function checkColor(){
-//     if (vaccine = true){
-//     (document.getElementsByClassName("btn-vac")[0]as HTMLElement).style.backgroundColor = "green";
-//     } else if(vaccine = false){
-//     (document.getElementsByClassName("btn-vac")[0]as HTMLElement).style.backgroundColor = "red";
-//     }
-//   }
-// checkColor();
-
